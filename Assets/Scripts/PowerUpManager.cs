@@ -25,7 +25,7 @@ public class PowerUpManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > spawnInterval)
+        if (timer >= spawnInterval)
         {
             GenerateRandomPowerUp();
             timer -= spawnInterval;
@@ -41,6 +41,7 @@ public class PowerUpManager : MonoBehaviour
     {
         if (powerUpList.Count >= maxPowerUpAmount)
         {
+            RemovePowerUp(powerUpList[0]);
             return;
         }
 
