@@ -7,8 +7,16 @@ public class PaddleController : MonoBehaviour
     public int speed;
     public KeyCode upKey;
     public KeyCode downKey;
+    public float powerUpDuration;
+    public Vector2 resetSize;
+    public Vector2 widerSize;
+    public int resetSpeed;
+    public int speedUpSpeed;
 
     private Rigidbody2D rig;
+
+    private float timerWider;
+    private float timerSpeed;
 
     private void Start()
     {
@@ -17,7 +25,19 @@ public class PaddleController : MonoBehaviour
 
     private void Update()
     {
+        timerWider += Time.deltaTime;
+        timerSpeed += Time.deltaTime;
         MoveObject(GetInput());
+
+        if (timerWider >= powerUpDuration)
+        {
+            transform.localScale = resetSize;
+        }
+
+        if (timerSpeed >= powerUpDuration)
+        {
+            speed = resetSpeed;
+        }
     }
 
     private Vector2 GetInput()
@@ -38,5 +58,17 @@ public class PaddleController : MonoBehaviour
     {
         Debug.Log("Paddle Speed: " + movement);
         rig.velocity = movement;
+    }
+
+    public void ActivatePUWiderPaddle()
+    {
+        timerWider = 0;
+        transform.localScale = widerSize;
+    }
+
+    public void ActivatePUSpeedUpPaddle()
+    {
+        timerSpeed = 0;
+        speed = speedUpSpeed;
     }
 }
