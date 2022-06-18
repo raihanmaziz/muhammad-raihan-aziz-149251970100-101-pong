@@ -10,4 +10,14 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("Game");
         Debug.Log("Created by Muhammad Raihan Aziz - 149251970100-101");
     }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void CreditGame()
+    {
+        SceneManager.LoadScene("Credit");
+    }
 }
