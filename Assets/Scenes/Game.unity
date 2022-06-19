@@ -374,6 +374,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 0}
   resetPosition: {x: 0, y: 0}
+  paddleKanan: {fileID: 745462646}
+  paddleKiri: {fileID: 195036771}
+  isRight: 0
 --- !u!50 &263321652
 Rigidbody2D:
   serializedVersion: 4

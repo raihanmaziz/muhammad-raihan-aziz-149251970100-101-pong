@@ -13,8 +13,14 @@ public class PUWiderPaddleController : MonoBehaviour
     {
         if (collision == ball)
         {
-            paddleKanan.GetComponent<PaddleController>().ActivatePUWiderPaddle();
-            paddleKiri.GetComponent<PaddleController>().ActivatePUWiderPaddle();
+            if (ball.GetComponent<BallControl>().isRight)
+            {
+                paddleKanan.GetComponent<PaddleController>().ActivatePUWiderPaddle();
+            }
+            else
+            {
+                paddleKiri.GetComponent<PaddleController>().ActivatePUWiderPaddle();
+            }
             manager.RemovePowerUp(gameObject);
         }
     }
